@@ -1,6 +1,6 @@
 """Image utilities used by the inference pipeline."""
 
-from typing import Sequence
+from collections.abc import Sequence
 
 import numpy as np
 

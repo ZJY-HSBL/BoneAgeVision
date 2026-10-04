@@ -1,8 +1,8 @@
 """Main desktop window."""
 
+import tkinter as tk
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 from bone_age_vision.core.analyzer import BoneAgeAnalyzer
@@ -161,7 +161,9 @@ class MainWindow:
             return
 
         self.detect_button.configure(state=tk.DISABLED, text="正在分析……")
-        self.result_display.update_result("正在加载模型并执行推理……\n首次运行会下载固定版本的 YOLOv5 代码。")
+        self.result_display.update_result(
+            "正在加载模型并执行推理……\n首次运行会下载固定版本的 YOLOv5 代码。"
+        )
         future = self.executor.submit(self._analyze, path, self.sex.get())
         future.add_done_callback(
             lambda completed: self.root.after(0, self._finish_detection, completed)

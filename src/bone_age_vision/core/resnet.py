@@ -63,12 +63,12 @@ class BoneStageResNet(nn.Module):
         return nn.Sequential(
             nn.Conv2d(in_channels, out_channels, 3, 2, 1, bias=False),
             nn.ReLU(),
-            nn.Conv2d(out_channnels, out_channels, 3, 1, 1, bias=False),
+            nn.Conv2d(out_channels, out_channels, 3, 1, 1, bias=False),
             nn.BatchNorm2d(out_channels),
-         )
+        )
 
     def forward(self, x: Tensor) -> Tensor:
-       x = self.layer1_conv64_and_maxPool(x)
+        x = self.layer1_conv64_and_maxPool(x)
 
         residual = x
         x = self.relu(self.layer2_conv64(x) + residual)
@@ -77,7 +77,7 @@ class BoneStageResNet(nn.Module):
         x = self.relu(self.layer3_conv64(x) + residual)
 
         residual = self.layer4_res128(x)
-       x = self.relu(self.layer4_conv64_to_conv128(x) + residual)
+        x = self.relu(self.layer4_conv64_to_conv128(x) + residual)
 
         residual = x
         x = self.relu(self.layer5_conv128(x) + residual)

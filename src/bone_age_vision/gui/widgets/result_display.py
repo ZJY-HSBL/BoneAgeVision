@@ -6,7 +6,7 @@ from tkinter import ttk
 
 class ResultDisplay(ttk.LabelFrame):
     def __init__(self, parent, *args, **kwargs) -> None:
-        super().__init__(parent, text=" 分析报告 ", padding=15, *args, **kwargs)
+        super().__init__(parent, *args, text=" 分析报告 ", padding=15, **kwargs)
         scrollbar = ttk.Scrollbar(self)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
