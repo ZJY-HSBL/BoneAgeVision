@@ -1,0 +1,1 @@
+"""GUI style configuration."""
