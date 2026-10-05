@@ -3,8 +3,8 @@ from pathlib import Path
 import pytest
 
 from bone_age_vision.core.assets import (
-    MissingWeightsError,
     REQUIRED_CHECKPOINTS,
+    MissingWeightsError,
     validate_weights_dir,
 )
 
