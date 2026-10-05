@@ -1,10 +1,10 @@
 """RUS-CHN score tables and bone-age calculation."""
 
-from typing import Literal
+from collections.abc import Mapping
 
-Sex = Literal["boy", "girl"]
+from bone_age_vision.core.domain import Assessment, BoneName, Sex
 
-BONE_ORDER = (
+BONE_ORDER: tuple[BoneName, ...] = (
     "MCPFirst",
     "MCPThird",
     "MCPFifth",
@@ -20,7 +20,7 @@ BONE_ORDER = (
     "Radius",
 )
 
-BONE_LABELS_ZH = {
+BONE_LABELS_ZH: dict[BoneName, str] = {
     "MCPFirst": "第一掌骨骺",
     "MCPThird": "第三掌骨骨骺",
     "MCPFifth": "第五掌骨骨骺",
@@ -99,7 +99,7 @@ AGE_COEFFICIENTS = {
 }
 
 
-def score_for_prediction(sex: Sex, bone_name: str, prediction_index: int) -> int:
+def score_for_prediction(sex: Sex, bone_name: BoneName, prediction_index: int) -> int:
     """Convert a zero-based classifier prediction to the corresponding RUS-CHN score."""
     try:
         scores = SCORE_TABLE[sex][bone_name]
@@ -127,7 +127,7 @@ def calculate_bone_age(total_score: int, sex: Sex) -> float:
 
 
 def format_report(
-    assessments: dict[str, tuple[int, int]], total_score: int, bone_age: float
+    assessments: Mapping[BoneName, Assessment], total_score: int, bone_age: float
 ) -> str:
     """Build the Chinese assessment report shown by the desktop UI."""
     missing = [bone for bone in BONE_ORDER if bone not in assessments]
@@ -136,11 +136,14 @@ def format_report(
 
     lines = []
     for bone in BONE_ORDER:
-        stage, score = assessments[bone]
-        lines.append(f"{BONE_LABELS_ZH[bone]}分级 {stage} 级，得 {score} 分")
+        assessment = assessments[bone]
+        lines.append(
+            f"{BONE_LABELS_ZH[bone]}分级 {assessment.stage} 级，得 {assessment.score} 分"
+        )
 
     detail = "；\n".join(lines) + "。"
     return (
         f"{detail}\n\n"
-        f"RUS-CHN 分级计分法：CHN 总得分 {total_score} 分，估算骨龄约 {bone_age} 岁。"
+        "RUS-CHN 分级计分法："
+        f"CHN 总得分 {total_score} 分，估算骨龄约 {bone_age} 岁。"
     )

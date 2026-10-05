@@ -30,3 +30,6 @@ dist/
 outputs/
 *.log
 *.partial
+
+# Private model checkpoints
+weights/*.pt

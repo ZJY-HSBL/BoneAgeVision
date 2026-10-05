@@ -1,8 +1,8 @@
 # Model checkpoints / 模型权重
 
-This directory contains the detector and nine skeletal-stage classifier checkpoints required by BoneAgeVision. The files are intentionally kept outside the Python package and tracked with Git LFS.
+BoneAgeVision does **not** publish trained model checkpoints in this repository. Keep the private checkpoint files in this directory for local development, or store them elsewhere and pass that directory with `--weights`.
 
-本目录保存 BoneAgeVision 运行所需的目标检测权重与 9 个骨骼分级权重。大文件不放入 Python 包内部，并通过 Git LFS 管理。
+BoneAgeVision **不在本仓库公开训练权重**。本地开发时可将私有权重放在此目录，也可以保存在其他位置，并通过 `--weights` 指定目录。
 
 Required files / 必需文件：
 
@@ -17,12 +17,6 @@ Required files / 必需文件：
 - `Resnet_Radius.pt`
 - `Resnet_Ulna.pt`
 
-Before the first Git push / 首次推送前：
+All `weights/*.pt` files are ignored by Git to prevent accidental publication.
 
-```bash
-git lfs install
-git add .gitattributes weights/*.pt
-git add .
-git commit -m "Initial BoneAgeVision release"
-git push -u origin main
-```
+所有 `weights/*.pt` 均已加入 `.gitignore`，避免误提交模型文件。
