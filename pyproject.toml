@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bone-age-vision"
-version = "0.1.0"
+version = "0.2.0"
 description = "Deep-learning bone age assessment with YOLOv5 localization and RUS-CHN scoring"
 readme = "README.md"
 requires-python = ">=3.10"

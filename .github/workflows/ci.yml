@@ -16,8 +16,10 @@ jobs:
       - name: Install lightweight quality dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install "setuptools>=70" wheel pytest ruff
+          pip install "setuptools>=70" wheel "numpy>=1.23.5,<3" pytest ruff
           pip install --no-deps -e .
+      - name: Compile
+        run: python -m compileall -q src
       - name: Lint
         run: ruff check src tests
       - name: Test

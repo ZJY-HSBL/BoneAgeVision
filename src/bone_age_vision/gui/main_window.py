@@ -4,17 +4,19 @@ import tkinter as tk
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
+from typing import cast
 
 from bone_age_vision.core.analyzer import BoneAgeAnalyzer
+from bone_age_vision.core.domain import Sex
 from bone_age_vision.gui.styles.theme import COLORS, FONTS
 from bone_age_vision.gui.widgets.image_viewer import ImageViewer
 from bone_age_vision.gui.widgets.result_display import ResultDisplay
-from bone_age_vision.paths import WEIGHTS_DIR
 
 
 class MainWindow:
-    def __init__(self) -> None:
+    def __init__(self, weights_dir: Path) -> None:
         self.root = tk.Tk()
+        self.weights_dir = Path(weights_dir).expanduser()
         self.analyzer: BoneAgeAnalyzer | None = None
         self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="bone-age-inference")
         self.file_path = tk.StringVar()
@@ -150,7 +152,9 @@ class MainWindow:
         self.file_path.set(selected)
         try:
             self.image_viewer.show_image(selected)
-            self.result_display.update_result("图像已加载。\n点击“开始智能分析”执行推理。")
+            self.result_display.update_result(
+                "图像已加载。\n点击“开始智能分析”执行推理。"
+            )
         except Exception as exc:
             messagebox.showerror("图像加载失败", str(exc))
 
@@ -162,17 +166,21 @@ class MainWindow:
 
         self.detect_button.configure(state=tk.DISABLED, text="正在分析……")
         self.result_display.update_result(
-            "正在加载模型并执行推理……\n首次运行会下载固定版本的 YOLOv5 代码。"
+            "正在加载模型并执行推理……\n"
+            "首次运行会下载固定版本的 YOLOv5 代码。"
         )
         future = self.executor.submit(self._analyze, path, self.sex.get())
         future.add_done_callback(
             lambda completed: self.root.after(0, self._finish_detection, completed)
         )
 
-    def _analyze(self, path: Path, sex: str):
+    def _analyze(self, path: Path, sex_value: str):
+        if sex_value not in ("boy", "girl"):
+            raise ValueError("invalid subject sex")
+        sex = cast(Sex, sex_value)
         if self.analyzer is None:
-            self.analyzer = BoneAgeAnalyzer(WEIGHTS_DIR)
-        return self.analyzer.analyze(path, sex)  # type: ignore[arg-type]
+            self.analyzer = BoneAgeAnalyzer(self.weights_dir)
+        return self.analyzer.analyze(path, sex)
 
     def _finish_detection(self, future) -> None:
         self.detect_button.configure(state=tk.NORMAL, text="开始智能分析")

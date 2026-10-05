@@ -1,7 +1,6 @@
-"""Bone-stage classification using the supplied ResNet checkpoints."""
+"""Bone-stage classification using the external ResNet checkpoints."""
 
 from pathlib import Path
-from typing import Literal
 
 import numpy as np
 import torch
@@ -9,12 +8,11 @@ from PIL import Image
 from torch import nn
 from torchvision import transforms
 
+from bone_age_vision.core.domain import BoneName, Box
 from bone_age_vision.core.image_processing import extract_region
 from bone_age_vision.core.resnet import BoneStageResNet
 
-Sex = Literal["boy", "girl"]
-
-MODEL_FOR_BONE = {
+MODEL_FOR_BONE: dict[BoneName, str] = {
     "DIPFifth": "DIP",
     "DIPThird": "DIP",
     "DIPFirst": "DIPFirst",
@@ -29,15 +27,13 @@ MODEL_FOR_BONE = {
     "Radius": "Radius",
     "Ulna": "Ulna",
 }
-
 MODEL_TYPES = tuple(dict.fromkeys(MODEL_FOR_BONE.values()))
 
 
 class BoneClassifier:
-    """Load all stage classifiers once and run inference on detected bone regions."""
+    """Load stage classifiers once and run inference on selected bone regions."""
 
     def __init__(self, weights_dir: Path, device: torch.device) -> None:
-        self.weights_dir = Path(weights_dir)
         self.device = device
         self.transform = transforms.Compose(
             [
@@ -46,15 +42,12 @@ class BoneClassifier:
                 transforms.ToTensor(),
             ]
         )
-        self.models = self._load_models()
+        self.models = self._load_models(weights_dir)
 
-    def _load_models(self) -> dict[str, nn.Module]:
+    def _load_models(self, weights_dir: Path) -> dict[str, nn.Module]:
         models: dict[str, nn.Module] = {}
         for model_type in MODEL_TYPES:
-            checkpoint = self.weights_dir / f"Resnet_{model_type}.pt"
-            if not checkpoint.is_file():
-                raise FileNotFoundError(f"missing classifier checkpoint: {checkpoint}")
-
+            checkpoint = weights_dir / f"Resnet_{model_type}.pt"
             model = BoneStageResNet(model_type).to(self.device)
             state_dict = torch.load(checkpoint, map_location=self.device, weights_only=True)
             model.load_state_dict(state_dict, strict=True)
@@ -62,11 +55,9 @@ class BoneClassifier:
             models[model_type] = model
         return models
 
-    def classify(self, image_rgb: np.ndarray, bone_name: str, box: list[float]) -> int:
-        model_type = MODEL_FOR_BONE.get(bone_name)
-        if model_type is None:
-            raise ValueError(f"unsupported bone name: {bone_name}")
-
+    def classify(self, image_rgb: np.ndarray, bone_name: BoneName, box: Box) -> int:
+        """Return the zero-based maturity-stage index for one selected region."""
+        model_type = MODEL_FOR_BONE[bone_name]
         region = extract_region(image_rgb, box)
         image = Image.fromarray(region.astype(np.uint8), mode="RGB")
         tensor = self.transform(image).unsqueeze(0).to(self.device)
