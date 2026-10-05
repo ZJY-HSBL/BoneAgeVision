@@ -2,7 +2,7 @@ import pytest
 
 torch = pytest.importorskip("torch")
 
-from bone_age_vision.core.resnet import BoneStageResNet, NUM_CLASSES  # noqa: E402
+from bone_age_vision.core.resnet import NUM_CLASSES, BoneStageResNet  # noqa: E402
 
 
 @pytest.mark.parametrize("bone_type, classes", NUM_CLASSES.items())
