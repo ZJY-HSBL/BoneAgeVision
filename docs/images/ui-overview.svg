@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="BoneAgeVision desktop interface prototype">
+<rect x="0" y="0" width="1440" height="900" rx="0" fill="#F3F6FA" stroke="none"/>
+<rect x="0" y="0" width="1440" height="94" rx="0" fill="#101F3C" stroke="none"/>
+<rect x="30" y="24" width="44" height="44" rx="0" fill="#315DDC" stroke="none"/>
+<text x="52" y="55" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="27" fill="white" font-weight="700" text-anchor="middle">B</text>
+<text x="92" y="54" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="26" fill="#FFFFFF" font-weight="700" text-anchor="start">BoneAgeVision</text>
+<text x="92" y="75" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#A8B9D4" font-weight="400" text-anchor="start">智能骨龄评估工作台  /  Bone Age Assessment</text>
+<text x="1400" y="55" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#A8B9D4" font-weight="400" text-anchor="end">YOLOv5   /   ResNet   /   RUS-CHN      •      v0.3.0</text>
+<rect x="24" y="116" width="248" height="760" rx="0" fill="white" stroke="#DFE6F0"/>
+<rect x="289" y="116" width="804" height="760" rx="0" fill="white" stroke="#DFE6F0"/>
+<rect x="1110" y="116" width="316" height="760" rx="0" fill="white" stroke="#DFE6F0"/>
+<text x="47" y="162" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="20" fill="#1A2942" font-weight="700" text-anchor="start">01   影像与对象</text>
+<text x="47" y="188" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">选择手部 X 光片并设置评估对象</text>
+<text x="47" y="238" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="start">检测对象</text>
+<text x="47" y="269" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="400" text-anchor="start">◉  男童</text>
+<text x="143" y="269" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="400" text-anchor="start">○  女童</text>
+<text x="47" y="316" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="start">影像文件</text>
+<text x="47" y="351" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="14" fill="#77869C" font-weight="400" text-anchor="start">尚未选择文件</text>
+<rect x="46" y="368" width="202" height="47" rx="0" fill="#EEF4FC" stroke="#DFE6F0"/>
+<text x="147" y="399" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="middle">选择 X 光图像</text>
+<rect x="46" y="429" width="202" height="47" rx="0" fill="#315DDC" stroke="none"/>
+<text x="147" y="460" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="16" fill="white" font-weight="700" text-anchor="middle">开始骨龄分析 →</text>
+<text x="47" y="509" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">支持 PNG、JPG、BMP、TIFF</text>
+<rect x="46" y="551" width="202" height="1" rx="0" fill="#DFE6F0" stroke="none"/>
+<text x="47" y="584" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="16" fill="#1A2942" font-weight="700" text-anchor="start">分析流程</text>
+<text x="47" y="626" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#315DDC" font-weight="700" text-anchor="start">01</text>
+<text x="83" y="626" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="start">骨骼定位</text>
+<text x="83" y="645" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">YOLOv5 · 目标检测</text>
+<text x="47" y="693" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#315DDC" font-weight="700" text-anchor="start">02</text>
+<text x="83" y="693" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="start">成熟度分级</text>
+<text x="83" y="712" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">ResNet · 关键骨骼</text>
+<text x="47" y="759" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#315DDC" font-weight="700" text-anchor="start">03</text>
+<text x="83" y="759" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#1A2942" font-weight="700" text-anchor="start">骨龄评估</text>
+<text x="83" y="778" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">RUS-CHN · 标准评分</text>
+<text x="47" y="852" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">●  就绪，等待选择影像</text>
+<text x="313" y="162" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="20" fill="#1A2942" font-weight="700" text-anchor="start">02   医学影像</text>
+<text x="1070" y="162" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="end">IMAGE VIEWER</text>
+<rect x="307" y="184" width="767" height="607" rx="0" fill="#15243D" stroke="none"/>
+<text x="111" y="900" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="10" fill="#1A2942" font-weight="400" text-anchor="start"></text>
+<text x="313" y="838" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">上传影像后可预览骨骼区域</text>
+<rect x="949" y="806" width="121" height="48" rx="0" fill="#EEF4FC" stroke="#DFE6F0"/>
+<text x="1009" y="835" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="14" fill="#77869C" font-weight="700" text-anchor="middle">保存标注图</text>
+<text x="1131" y="162" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="20" fill="#1A2942" font-weight="700" text-anchor="start">03   评估结果</text>
+<text x="1131" y="188" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">RUS-CHN ASSESSMENT</text>
+<rect x="1130" y="208" width="275" height="136" rx="0" fill="#EEF4FC" stroke="none"/>
+<text x="1146" y="237" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">预测骨龄 / Predicted bone age</text>
+<text x="1146" y="285" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="30" fill="#1A2942" font-weight="700" text-anchor="start">—</text>
+<text x="1146" y="325" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">总分  —</text>
+<text x="1390" y="325" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">关键区域  0 / 13</text>
+<text x="1131" y="386" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="16" fill="#1A2942" font-weight="700" text-anchor="start">各区域评分</text>
+<rect x="1130" y="405" width="275" height="381" rx="0" fill="white" stroke="#DFE6F0"/>
+<rect x="1131" y="406" width="273" height="34" rx="0" fill="#EEF4FC" stroke="none"/>
+<text x="1144" y="428" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#1A2942" font-weight="700" text-anchor="start">骨骼区域</text>
+<text x="1321" y="428" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#1A2942" font-weight="700" text-anchor="end">分级</text>
+<text x="1384" y="428" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="13" fill="#1A2942" font-weight="700" text-anchor="end">得分</text>
+<text x="1142" y="462" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第一掌骨骺</text>
+<text x="1317" y="462" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="462" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="486" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第三掌骨骺</text>
+<text x="1317" y="486" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="486" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="510" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第五掌骨骺</text>
+<text x="1317" y="510" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="510" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="534" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第一近节指骨</text>
+<text x="1317" y="534" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="534" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="558" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第三近节指骨</text>
+<text x="1317" y="558" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="558" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="582" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第五近节指骨</text>
+<text x="1317" y="582" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="582" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="606" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第三中节指骨</text>
+<text x="1317" y="606" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="606" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="630" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第五中节指骨</text>
+<text x="1317" y="630" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="630" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="654" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第一远节指骨</text>
+<text x="1317" y="654" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="654" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="678" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第三远节指骨</text>
+<text x="1317" y="678" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="678" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="702" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">第五远节指骨</text>
+<text x="1317" y="702" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="702" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="726" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">尺骨</text>
+<text x="1317" y="726" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="726" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1142" y="750" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="start">桡骨</text>
+<text x="1317" y="750" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<text x="1381" y="750" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#1A2942" font-weight="400" text-anchor="end">—</text>
+<rect x="1130" y="808" width="275" height="47" rx="0" fill="#EEF4FC" stroke="#DFE6F0"/>
+<text x="1267" y="837" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="15" fill="#77869C" font-weight="700" text-anchor="middle">导出评估报告</text>
+<text x="28" y="892" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="start">研究用途 · 不用于临床诊断或医疗决策</text>
+<text x="1412" y="892" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="12" fill="#77869C" font-weight="400" text-anchor="end">本地处理  •  Model files stay on your device</text>
+<text x="690" y="478" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="24" fill="#DDE7F6" font-weight="700" text-anchor="middle">尚未选择影像</text>
+<text x="690" y="518" font-family="Noto Sans CJK SC,Microsoft YaHei UI,Arial,sans-serif" font-size="16" fill="#879BB7" font-weight="400" text-anchor="middle">请选择手部 X 光片开始预览</text>
+</svg>
