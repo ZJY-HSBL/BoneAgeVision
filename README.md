@@ -145,6 +145,10 @@ bone-age-vision --weights /path/to/weights
 
 The first detector initialization requires internet access because PyTorch Hub loads the pinned YOLOv5 source revision used by the project.
 
+### Versioned downloads
+
+Stable project versions are available on [GitHub Releases](https://github.com/ZJY-HSBL/BoneAgeVision/releases), including versioned source packages, Python distribution files, and checksums. Model checkpoints are kept separate from the source distribution.
+
 ---
 
 ## 中文
@@ -285,3 +289,7 @@ bone-age-vision --weights /path/to/weights
 ```
 
 首次初始化检测器时需要联网，以便 PyTorch Hub 加载项目所使用的固定 YOLOv5 源码版本。
+
+### 版本下载
+
+在 [GitHub Releases](https://github.com/ZJY-HSBL/BoneAgeVision/releases) 页面获取稳定版本的源码压缩包、Python 安装包和校验文件。模型权重与源码包分开管理。
