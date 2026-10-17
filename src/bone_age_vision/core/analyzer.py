@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 from bone_age_vision.core.assets import validate_weights_dir
 from bone_age_vision.core.classifier import BoneClassifier
 from bone_age_vision.core.detector import BoneDetector
-from bone_age_vision.core.domain import Assessment, BoneName, BoneRegion, Sex
+from bone_age_vision.core.domain import AnalysisResult, Assessment, BoneName, BoneRegion, Sex
 from bone_age_vision.core.regions import select_required_regions
 from bone_age_vision.core.scoring import calculate_bone_age, format_report, score_for_prediction
 
@@ -66,8 +66,8 @@ class BoneAgeAnalyzer:
             draw.text((x1, max(0, y1 - 26)), region.bone_name, fill=color, font=font)
         return annotated
 
-    def analyze(self, image_path: str | Path, sex: Sex) -> tuple[str, Image.Image]:
-        """Run the complete assessment and return a report plus annotated image."""
+    def analyze(self, image_path: str | Path, sex: Sex) -> AnalysisResult:
+        """Run the complete assessment and return structured results."""
         if sex not in ("boy", "girl"):
             raise ValueError("sex must be 'boy' or 'girl'")
 
@@ -89,4 +89,10 @@ class BoneAgeAnalyzer:
         total_score = sum(assessment.score for assessment in assessments.values())
         bone_age = calculate_bone_age(total_score, sex)
         report = format_report(assessments, total_score, bone_age)
-        return report, self._render_regions(image_rgb, regions)
+        return AnalysisResult(
+            report=report,
+            annotated_image=self._render_regions(image_rgb, regions),
+            total_score=total_score,
+            bone_age=bone_age,
+            assessments=assessments,
+        )

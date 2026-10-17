@@ -1,7 +1,12 @@
 """Shared domain types for the bone-age assessment pipeline."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
-from typing import Literal, TypeAlias
+from typing import TYPE_CHECKING, Literal, TypeAlias
+
+if TYPE_CHECKING:
+    from PIL import Image
 
 Sex = Literal["boy", "girl"]
 BoneName = Literal[
@@ -45,3 +50,13 @@ class Assessment:
 
     stage: int
     score: int
+
+@dataclass(frozen=True, slots=True)
+class AnalysisResult:
+    """Structured output of one complete RUS-CHN assessment."""
+
+    report: str
+    annotated_image: Image.Image
+    total_score: int
+    bone_age: float
+    assessments: dict[BoneName, Assessment]
