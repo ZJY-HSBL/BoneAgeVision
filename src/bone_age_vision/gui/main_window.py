@@ -119,7 +119,9 @@ class MainWindow:
         self.file_info.pack(fill="x", pady=(10, 12))
         self.choose_button = self._button(body, "选择 X 光图像", self._choose_image)
         self.choose_button.pack(fill="x")
-        self.analyze_button = self._button(body, "开始骨龄分析  →", self._start_analysis, primary=True)
+        self.analyze_button = self._button(
+            body, "开始骨龄分析  →", self._start_analysis, primary=True
+        )
         self.analyze_button.pack(fill="x", pady=(14, 0))
         self._label(
             body, "支持 PNG、JPG、BMP、TIFF", size="small", fg="muted"
@@ -289,7 +291,7 @@ class MainWindow:
         self.score_label.configure(text=f"总分   {result.total_score}")
         self.region_label.configure(text=f"关键区域   {len(result.assessments)} / 13")
         self._fill_empty_rows()
-        for item, name in zip(self.table.get_children(), BONE_ORDER):
+        for item, name in zip(self.table.get_children(), BONE_ORDER, strict=True):
             assess = result.assessments[name]
             self.table.item(item, values=(BONE_LABELS_ZH[name], assess.stage, assess.score))
         self.image_hint.configure(text="分析标注图 · 13 个关键区域")
