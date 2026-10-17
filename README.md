@@ -6,6 +6,21 @@ Deep-learning bone age assessment with YOLOv5 localization, ResNet stage classif
 > For research, teaching, and engineering demonstration only. It is not a clinical diagnostic device.  
 > 本项目仅用于科研、教学与工程演示，不构成医疗诊断或临床决策依据。
 
+
+## Interface Preview / 界面预览
+
+The interface illustrations below correspond to the v0.3.0 desktop layout. The values and annotated hand in the second image are **illustrative demo data, not outputs from a trained model**.
+
+以下原型图对应 v0.3.0 的实际桌面界面布局。第二张图中的骨龄数值与手部标注均为**演示数据，并非模型真实推理结果**。
+
+**Workspace / 分析工作台**
+
+![BoneAgeVision desktop workspace prototype](docs/images/ui-overview.svg)
+
+**Assessment / 评估结果预览（演示数据）**
+
+![BoneAgeVision analysis result prototype with demonstration data](docs/images/ui-result-demo.svg)
+
 ## English
 
 ### Overview
