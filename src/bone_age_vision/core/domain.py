@@ -1,9 +1,13 @@
 """Shared domain types for the bone-age assessment pipeline."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 
-from PIL import Image
-from typing import Literal, TypeAlias
+from typing import TYPE_CHECKING, Literal, TypeAlias
+
+if TYPE_CHECKING:
+    from PIL import Image
 
 Sex = Literal["boy", "girl"]
 BoneName = Literal[
